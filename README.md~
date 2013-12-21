@@ -5,4 +5,4 @@ a MOLAP engine on HBase, built with Akka.
 
 Please refer two essays for this system design and test results:
 A Practice of TPC-DS Multidimensional Implementation on NoSQL Database Systems， TPCTC 2013
-A Multidimensional OLAP Engine Implementation in Key-Value Database Systems， WBDB 2013 
+A Multidimensional OLAP Engine Implementation in Key-Value Database Systems， WBDB 2013

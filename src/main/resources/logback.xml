@@ -1,0 +1,57 @@
+<configuration scan="true" debug="true">
+	<appender name="AllFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>log/logFile.log</file>
+		<append>false</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>log/backup/logFile.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%-7relative %d{HH:mm:ss.SSS} [%thread] %-5level %logger{35}- %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="CUBE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>log/Cube.log</file>
+		<append>false</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>log/backup/Cube.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%-7relative %d{HH:mm:ss.SSS} [%thread] %-5level %logger{35}- %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!--encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<!-- default: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n -->
+			<pattern>%msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+
+	<logger name="bulu" level="INFO">
+		<appender-ref ref="CUBE" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<!--  <logger name="akka.event" level="INFO" > <appender-ref ref="CUBE" /> 
+		</logger><logger name="com.cubee.actor" level="INFO" > <appender-ref ref="CUBE" 
+		/> </logger> -->
+	<root level="ERROR">
+		<appender-ref ref="AllFILE" />
+		
+	</root>
+</configuration>
