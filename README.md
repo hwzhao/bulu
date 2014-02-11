@@ -40,17 +40,17 @@ see scr/main/resources/application.conf as an example
 
 Test Result
 ----
-the query time in same nodes is shorter than query time in Hive:
+the query time of MOLAP engine is quicker than query time with Hive in same nodes :
 
-	        1G	    10G	    100G
+data volume 1G	        10G	100G
 	        
 query 7	    14X 	24X 	19X 
 
-query 42	53X 	49X 	48X 
+query 42    53X 	49X 	48X 
 
-query 52	53X 	56X 	50X 
+query 52    53X 	56X 	50X 
 
-query 55	40X 	56X 	39X 
+query 55    40X 	56X 	39X 
 
 Please refer two essays for this system design and test results:
 
